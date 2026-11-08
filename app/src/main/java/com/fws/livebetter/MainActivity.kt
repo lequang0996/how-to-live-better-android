@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var speech: SpeechController
     private lateinit var updateManager: AppUpdateManager
     private lateinit var consent: ConsentInformation
+    private lateinit var ads: FullScreenAds
 
     private val adsReady = mutableStateOf(false)
     private val updateReady = mutableStateOf(false)
@@ -47,9 +48,10 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         speech = SpeechController(this).also { it.rate = vm.prefs.ttsRate }
+        ads = FullScreenAds(this, vm.adCounter)
         lifecycle.addObserver(object : DefaultLifecycleObserver {
-            override fun onStart(owner: LifecycleOwner) = vm.onForeground()
-            override fun onStop(owner: LifecycleOwner) = vm.onBackground()
+            override fun onStart(owner: LifecycleOwner) { vm.onForeground(); ads.onForeground() }
+            override fun onStop(owner: LifecycleOwner) { vm.onBackground(); ads.onBackground() }
         })
 
         setContent {
@@ -59,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                         vm, adsReady.value, updateReady.value, privacyRequired.value,
                         onRestartUpdate = { updateManager.completeUpdate() },
                         onPrivacyOptions = { UserMessagingPlatform.showPrivacyOptionsForm(this) { } },
+                        onItemViewed = ads::onItemViewed,
                     )
                 }
             }
@@ -102,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         if (consent.canRequestAds() && adsStarted.compareAndSet(false, true)) {
             Thread {
                 MobileAds.initialize(this)
-                runOnUiThread { adsReady.value = true }
+                runOnUiThread { adsReady.value = true; ads.start() }
             }.start()
         }
     }
@@ -116,6 +119,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         updateManager.unregisterListener(installListener)
+        ads.release()
         if (isFinishing) speech.shutdown()
         super.onDestroy()
     }

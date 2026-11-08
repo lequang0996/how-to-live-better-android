@@ -58,13 +58,18 @@
     <string name="guide_5_d">책의 가격은 위안 기준입니다. 선택한 언어의 통화로 자동 환산됩니다.</string>
     <string name="guide_6_t">즐겨찾기와 설정</string>
     <string name="guide_6_d">하트를 눌러 항목을 저장하세요. 설정에서 언어, 라이트/다크 모드, 읽기 속도를 바꿀 수 있습니다.</string>
-    <string name="about_intro">Live Better는 중국어 책 『高性价比人生指南』(How To Live Better)의 베트남어 커뮤니티 판 \"Sống Đáng Tiền\"을 바탕으로 한 비공식 리더 앱입니다.</string>
+    <string name="about_intro">Live Better는 중국어 책 『高性价比人生指南』(How To Live Better)을 바탕으로 한 독서 앱입니다.</string>
     <string name="about_changes">변경 사항: 각 항목의 제목, 근거 등급, 쉬운 설명, 비용, 이점만 사용하고 나머지는 생략했습니다. 모바일용으로 재구성했고, 위안 금액을 다른 통화로 환산하며, 읽어 주기와 즐겨찾기를 추가했습니다. 원저자의 보증을 받지 않았습니다.</string>
     <string name="about_attr">저작자 표시 (CC BY 4.0)</string>
     <string name="about_original">원작</string>
-    <string name="about_vi_edition">베트남어 판</string>
     <string name="about_license">라이선스</string>
-    <string name="about_version">원본 버전</string>
-    <string name="about_version_value">원본 커밋 e2605d3e (2026/10/21) · 베트남어 PDF 2026/11/03 빌드</string>
     <string name="fx_label">2026년 11월 참고 환율</string>
+    <string name="lang_en">영어</string>
+    <string name="lang_zh">중국어(간체)</string>
+    <string name="lang_es">스페인어</string>
+    <string name="lang_pt">포르투갈어(브라질)</string>
+    <string name="lang_ru">러시아어</string>
+    <string name="lang_ja">일본어</string>
+    <string name="lang_ko">한국어</string>
+    <string name="lang_vi">베트남어</string>
 </resources>

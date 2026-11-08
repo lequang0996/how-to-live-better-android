@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun AppRoot(
     vm: MainViewModel, adsReady: Boolean, updateReady: Boolean, privacyRequired: Boolean,
-    onRestartUpdate: () -> Unit, onPrivacyOptions: () -> Unit,
+    onRestartUpdate: () -> Unit, onPrivacyOptions: () -> Unit, onItemViewed: (Int) -> Unit,
 ) {
     val content by vm.content.collectAsState()
     val c = content
@@ -39,7 +39,7 @@ fun AppRoot(
         // Khi có banner, banner đã chừa chỗ cho thanh điều hướng → nội dung phía trên không cộng thêm inset đáy.
         Box(Modifier.weight(1f).then(if (adsReady) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier)) {
             if (c == null) CircularProgressIndicator(Modifier.align(Alignment.Center))
-            else Navigation(vm, c, updateReady, privacyRequired, onRestartUpdate, onPrivacyOptions)
+            else Navigation(vm, c, updateReady, privacyRequired, onRestartUpdate, onPrivacyOptions, onItemViewed)
         }
         if (adsReady) AdBanner(Modifier.navigationBarsPadding())
     }
@@ -48,7 +48,7 @@ fun AppRoot(
 @Composable
 private fun Navigation(
     vm: MainViewModel, c: Content, updateReady: Boolean, privacyRequired: Boolean,
-    onRestartUpdate: () -> Unit, onPrivacyOptions: () -> Unit,
+    onRestartUpdate: () -> Unit, onPrivacyOptions: () -> Unit, onItemViewed: (Int) -> Unit,
 ) {
     val nav = rememberNavController()
     val drawer = rememberDrawerState(DrawerValue.Closed)
@@ -118,7 +118,10 @@ private fun Navigation(
                     ChapterScreen(vm, c, it.arguments!!.getInt("id"), { nav.popBackStack() }, { id -> nav.navigate("item/$id") })
                 }
                 composable("item/{id}", listOf(navArgument("id") { type = NavType.IntType })) {
-                    ItemScreen(vm, c, it.arguments!!.getInt("id")) { nav.popBackStack() }
+                    val itemId = it.arguments!!.getInt("id")
+                    // Mỗi mục MỚI (chưa xem trong phiên) được tính 1 lần → cứ đủ 5 mục mới thì có thể hiện quảng cáo xen kẽ.
+                    LaunchedEffect(itemId) { onItemViewed(itemId) }
+                    ItemScreen(vm, c, itemId) { nav.popBackStack() }
                 }
                 composable("favorites") { FavoritesScreen(vm, c, { nav.popBackStack() }, { id -> nav.navigate("item/$id") }) }
                 composable("guide") { GuideScreen { nav.popBackStack() } }

@@ -2,6 +2,7 @@ package com.fws.livebetter.ui
 
 import android.content.Intent
 import android.speech.tts.TextToSpeech
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.background
@@ -393,9 +394,18 @@ fun GuideScreen(onBack: () -> Unit) {
 }
 
 // ───────────────────────────── SETTINGS ─────────────────────────────
+/** tag: mã locale áp dụng cho app · key: khóa ngôn ngữ nội bộ (langKey) · label: tên ngôn ngữ này trong ngôn ngữ giao diện đang dùng. */
+private class Lang(val tag: String, val key: String, val flag: String, val native: String, @StringRes val label: Int)
+
 private val LANGUAGES = listOf(
-    "" to null, "en" to "English", "zh-CN" to "简体中文", "es" to "Español", "pt-BR" to "Português (Brasil)",
-    "ru" to "Русский", "ja" to "日本語", "ko" to "한국어", "vi" to "Tiếng Việt",
+    Lang("en", "en", "🇬🇧", "English", R.string.lang_en),
+    Lang("zh-CN", "zh", "🇨🇳", "简体中文", R.string.lang_zh),
+    Lang("es", "es", "🇪🇸", "Español", R.string.lang_es),
+    Lang("pt-BR", "pt", "🇧🇷", "Português (Brasil)", R.string.lang_pt),
+    Lang("ru", "ru", "🇷🇺", "Русский", R.string.lang_ru),
+    Lang("ja", "ja", "🇯🇵", "日本語", R.string.lang_ja),
+    Lang("ko", "ko", "🇰🇷", "한국어", R.string.lang_ko),
+    Lang("vi", "vi", "🇻🇳", "Tiếng Việt", R.string.lang_vi),
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -410,7 +420,15 @@ fun SettingsScreen(vm: MainViewModel, privacyRequired: Boolean, onPrivacyOptions
     Scaffold(topBar = { TopAppBar(title = { Text(stringResource(R.string.settings), style = MaterialTheme.typography.titleLarge) }, navigationIcon = { BackButton(onBack) }) }) { pad ->
         Column(Modifier.padding(pad).fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             SettingsTitle(stringResource(R.string.language))
-            LANGUAGES.forEach { (tag, name) ->
+            // "🇬🇧 - English (Tiếng Anh)": tên bản ngữ + tên theo ngôn ngữ giao diện hiện tại (bỏ phần ngoặc nếu trùng ngôn ngữ đang dùng).
+            val uiLang = currentLang()
+            val rows = listOf("" to ("🌐 - " + stringResource(R.string.system_default))) + LANGUAGES.map { l ->
+                l.tag to (
+                    if (l.key == uiLang) "${l.flag} - ${l.native}"
+                    else "${l.flag} - ${l.native} (${stringResource(l.label)})"
+                )
+            }
+            rows.forEach { (tag, label) ->
                 Row(
                     Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).clickable {
                         langTag = tag
@@ -421,7 +439,7 @@ fun SettingsScreen(vm: MainViewModel, privacyRequired: Boolean, onPrivacyOptions
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     RadioButton(selected = langTag == tag, onClick = null, modifier = Modifier.padding(12.dp))
-                    Text(name ?: stringResource(R.string.system_default), style = MaterialTheme.typography.bodyLarge)
+                    Text(label, style = MaterialTheme.typography.bodyLarge)
                 }
             }
 
@@ -476,12 +494,7 @@ fun AboutScreen(onBack: () -> Unit) {
                 Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                     Text(stringResource(R.string.about_attr), style = MaterialTheme.typography.titleMedium)
                     LinkRow(stringResource(R.string.about_original), "「高性价比人生指南」 · eternity4719\nhttps://github.com/eternity4719/HowToLiveBetter", "https://github.com/eternity4719/HowToLiveBetter")
-                    LinkRow(stringResource(R.string.about_vi_edition), "Sống Đáng Tiền · zero2better.com\nhttps://github.com/luonglb/song-dang-tien", "https://github.com/luonglb/song-dang-tien")
                     LinkRow(stringResource(R.string.about_license), "CC BY 4.0\nhttps://creativecommons.org/licenses/by/4.0/", "https://creativecommons.org/licenses/by/4.0/")
-                    Column {
-                        Text(stringResource(R.string.about_version), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.secondary)
-                        Text(stringResource(R.string.about_version_value), style = MaterialTheme.typography.bodyMedium)
-                    }
                 }
             }
             Text(stringResource(R.string.about_changes), style = MaterialTheme.typography.bodyMedium)

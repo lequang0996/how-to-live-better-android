@@ -44,7 +44,7 @@ LƯU Ý QUAN TRỌNG
 • Giá hiển thị là giá tham khảo quy đổi từ nhân dân tệ, giá thực tế mỗi nơi mỗi khác.
 
 GHI CÔNG & GIẤY PHÉP
-Tác phẩm gốc: 「高性价比人生指南」 (HowToLiveBetter) của eternity4719 — https://github.com/eternity4719/HowToLiveBetter. Bản Việt hóa “Sống Đáng Tiền”: zero2better.com — https://github.com/luonglb/song-dang-tien. Nội dung theo giấy phép CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Phiên bản nguồn: commit gốc e2605d3e (21/10/2026), PDF tiếng Việt dựng ngày 03/11/2026. Thay đổi: chỉ giữ Tiêu đề, Xếp hạng, Nói đơn giản, Chi phí, Lợi ích; lược bỏ phần còn lại; trình bày lại cho điện thoại; quy đổi tiền tệ; thêm đọc thành tiếng và yêu thích. Ứng dụng không được tác giả gốc bảo trợ.
+Tác phẩm gốc: 「高性价比人生指南」 (HowToLiveBetter) của eternity4719 — https://github.com/eternity4719/HowToLiveBetter. Nội dung theo giấy phép CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Thay đổi: chỉ giữ Tiêu đề, Xếp hạng, Nói đơn giản, Chi phí, Lợi ích; lược bỏ phần còn lại; trình bày lại cho điện thoại; quy đổi tiền tệ; thêm đọc thành tiếng và yêu thích. Ứng dụng không được tác giả gốc bảo trợ.
 
 Chính sách quyền riêng tư: xem liên kết trong Cài đặt và trên trang cửa hàng.
 ```
@@ -91,7 +91,7 @@ IMPORTANT NOTES
 • Displayed prices are reference conversions from Chinese yuan; real prices vary.
 
 CREDITS & LICENSE
-Original work: 「高性价比人生指南」 (HowToLiveBetter) by eternity4719 — https://github.com/eternity4719/HowToLiveBetter. Vietnamese edition “Sống Đáng Tiền”: zero2better.com — https://github.com/luonglb/song-dang-tien. Content licensed under CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Source version: original commit e2605d3e (21 Oct 2026), Vietnamese PDF built 3 Nov 2026. Changes: only Title, Rating, In plain words, Cost and Benefit are kept; the rest is omitted; reformatted for mobile; currency conversion, read-aloud and favorites added. Not endorsed by the original authors.
+Original work: 「高性价比人生指南」 (HowToLiveBetter) by eternity4719 — https://github.com/eternity4719/HowToLiveBetter. Content licensed under CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Changes: only Title, Rating, In plain words, Cost and Benefit are kept; the rest is omitted; reformatted for mobile; currency conversion, read-aloud and favorites added. Not endorsed by the original authors.
 
 Privacy policy: see the link in Settings and on the store listing.
 ```

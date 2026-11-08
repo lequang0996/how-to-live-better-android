@@ -18,6 +18,8 @@ android {
         // ⚠️ GOOGLE TEST IDs. Thay bằng ID AdMob thật của bạn trước khi phát hành.
         manifestPlaceholders["admobAppId"] = "ca-app-pub-3940256099942544~3347511713"
         buildConfigField("String", "ADMOB_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
+        buildConfigField("String", "ADMOB_APP_OPEN_ID", "\"ca-app-pub-3940256099942544/9257395921\"")      // Quảng cáo mở ứng dụng (ID thử nghiệm)
+        buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"ca-app-pub-3940256099942544/1033173712\"") // Quảng cáo xen kẽ (ID thử nghiệm)
         // ⚠️ Thay bằng URL thật sau khi bật GitHub Pages cho thư mục docs/
         buildConfigField("String", "PRIVACY_URL", "\"https://YOUR_GITHUB_USER.github.io/LiveBetter/privacy-policy.html\"")
     }

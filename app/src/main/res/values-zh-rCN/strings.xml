@@ -58,13 +58,18 @@
     <string name="guide_5_d">书中价格以人民币计。应用会自动换算成所选语言对应的货币。</string>
     <string name="guide_6_t">收藏与设置</string>
     <string name="guide_6_d">点按爱心收藏条目。在设置中可更改语言、浅色/深色模式和朗读速度。</string>
-    <string name="about_intro">Live Better 是一款非官方阅读应用,基于中文书籍《高性价比人生指南》(How To Live Better)的越南语社区版“Sống Đáng Tiền”。</string>
+    <string name="about_intro">Live Better 是一款基于中文书籍《高性价比人生指南》(How To Live Better)制作的阅读应用。</string>
     <string name="about_changes">所作修改:每条仅保留标题、等级、通俗说明、成本与益处;省略其他部分;为手机重新排版;人民币金额换算为其他货币;新增朗读与收藏功能。未获原作者背书。</string>
     <string name="about_attr">署名(CC BY 4.0)</string>
     <string name="about_original">原作</string>
-    <string name="about_vi_edition">越南语版</string>
     <string name="about_license">许可证</string>
-    <string name="about_version">来源版本</string>
-    <string name="about_version_value">原作提交 e2605d3e(2026/10/21)· 越南语PDF构建于2026/11/03</string>
     <string name="fx_label">2026年11月参考汇率</string>
+    <string name="lang_en">英语</string>
+    <string name="lang_zh">简体中文</string>
+    <string name="lang_es">西班牙语</string>
+    <string name="lang_pt">葡萄牙语(巴西)</string>
+    <string name="lang_ru">俄语</string>
+    <string name="lang_ja">日语</string>
+    <string name="lang_ko">韩语</string>
+    <string name="lang_vi">越南语</string>
 </resources>

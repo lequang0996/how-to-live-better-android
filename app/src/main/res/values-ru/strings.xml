@@ -58,13 +58,18 @@
     <string name="guide_5_d">Цены в книге указаны в юанях. Приложение пересчитывает их в валюту выбранного языка.</string>
     <string name="guide_6_t">Избранное и настройки</string>
     <string name="guide_6_d">Нажмите на сердечко, чтобы сохранить пункт. В настройках — язык, светлая/тёмная тема и скорость чтения.</string>
-    <string name="about_intro">Live Better — неофициальное приложение для чтения, созданное на основе общественного вьетнамского издания «Sống Đáng Tiền» китайской книги 高性价比人生指南 (How To Live Better).</string>
+    <string name="about_intro">Live Better — приложение для чтения, созданное на основе китайской книги 高性价比人生指南 (How To Live Better).</string>
     <string name="about_changes">Внесённые изменения: оставлены только заголовок, уровень доказательств, «простыми словами», затраты и польза; остальные разделы опущены; текст переверстан для телефона; суммы в юанях пересчитываются в другие валюты; добавлены озвучивание и избранное. Авторы оригинала проект не одобряли.</string>
     <string name="about_attr">Указание авторства (CC BY 4.0)</string>
     <string name="about_original">Оригинал</string>
-    <string name="about_vi_edition">Вьетнамское издание</string>
     <string name="about_license">Лицензия</string>
-    <string name="about_version">Версия источника</string>
-    <string name="about_version_value">Исходный коммит e2605d3e (21.10.2026) · вьетнамский PDF от 03.11.2026</string>
     <string name="fx_label">Курсы, ноябрь 2026</string>
+    <string name="lang_en">английский</string>
+    <string name="lang_zh">китайский (упрощённый)</string>
+    <string name="lang_es">испанский</string>
+    <string name="lang_pt">португальский (Бразилия)</string>
+    <string name="lang_ru">русский</string>
+    <string name="lang_ja">японский</string>
+    <string name="lang_ko">корейский</string>
+    <string name="lang_vi">вьетнамский</string>
 </resources>

@@ -18,6 +18,9 @@ import kotlinx.coroutines.launch
 class MainViewModel(app: Application) : AndroidViewModel(app) {
     val prefs = Prefs(app)
 
+    /** Bộ đếm quảng cáo toàn màn hình; nằm trong ViewModel để không mất khi xoay màn hình / đổi ngôn ngữ. */
+    val adCounter = AdCounter()
+
     private val _content = MutableStateFlow<Content?>(null)
     val content: StateFlow<Content?> = _content
 

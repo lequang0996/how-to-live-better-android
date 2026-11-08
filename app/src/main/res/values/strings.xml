@@ -58,13 +58,18 @@
     <string name="guide_5_d">Prices in the book are in Chinese yuan. They are converted automatically to the currency of the language you choose.</string>
     <string name="guide_6_t">Favorites and settings</string>
     <string name="guide_6_d">Tap the heart to save tips. In Settings you can change language, light/dark mode and reading speed.</string>
-    <string name="about_intro">Live Better is an unofficial reader for the community Vietnamese edition \"Sống Đáng Tiền\" of the Chinese book 高性价比人生指南 (How To Live Better).</string>
+    <string name="about_intro">Live Better is a reader app built from the Chinese book 高性价比人生指南 (How To Live Better).</string>
     <string name="about_changes">Changes made: only each tip\'s Title, Evidence rating, In plain words, Cost and Benefit are kept; other sections are omitted; text is reformatted for mobile; Chinese yuan amounts are converted to other currencies; text-to-speech and favorites were added. Not endorsed by the original authors.</string>
     <string name="about_attr">Attribution (CC BY 4.0)</string>
     <string name="about_original">Original work</string>
-    <string name="about_vi_edition">Vietnamese edition</string>
     <string name="about_license">License</string>
-    <string name="about_version">Source version</string>
-    <string name="about_version_value">Original commit e2605d3e (21/10/2026) · Vietnamese PDF built 03/11/2026</string>
     <string name="fx_label">Rates as of Nov 2026</string>
+    <string name="lang_en">English</string>
+    <string name="lang_zh">Chinese (Simplified)</string>
+    <string name="lang_es">Spanish</string>
+    <string name="lang_pt">Portuguese (Brazil)</string>
+    <string name="lang_ru">Russian</string>
+    <string name="lang_ja">Japanese</string>
+    <string name="lang_ko">Korean</string>
+    <string name="lang_vi">Vietnamese</string>
 </resources>
