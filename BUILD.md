@@ -11,7 +11,7 @@
 - [ ] Sửa `YOUR_EMAIL@example.com` trong `docs/privacy-policy.html`.
 - [ ] Tạo keystore, ký **AAB** (Play App Signing).
 - [ ] Play Console → **Data safety**: khai báo Advertising ID/thiết bị (AdMob), không thu thập dữ liệu cá nhân khác; **Target audience: 18+** (không dành cho trẻ em); khai báo **Ads = Có**; **Health apps declaration**: ứng dụng thông tin tham khảo, không phải thiết bị y tế.
-- [ ] Ảnh chụp màn hình, feature graphic 1024×500; icon 512×512 có sẵn ở `docs/play-store-icon-512.png`.
+- [ ] Chụp ảnh màn hình thật và đặt vào `store/screenshots/`; feature graphic và icon 512×512 đã có trong `store/`.
 - [ ] Kiểm tra form đồng ý UMP bằng thiết bị thử trong vùng EEA (cấu hình tại AdMob → Privacy & messaging).
 
 ## Cập nhật dữ liệu sách

@@ -1,12 +1,45 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
-    <path android:fillColor="#E5BE6F"
-        android:pathData="M54,44 C46,39 36,39 29,42 L29,76 C36,73 46,73 54,78 Z" />
-    <path android:fillColor="#F3D28D"
-        android:pathData="M54,44 C62,39 72,39 79,42 L79,76 C72,73 62,73 54,78 Z" />
-    <path android:fillColor="#14213D"
-        android:pathData="M53,44 L55,44 L55,78 L53,78 Z" />
-    <path android:fillColor="#FFFFFF"
-        android:pathData="M54,20 L56.6,27 L63.5,29.5 L56.6,32 L54,39 L51.4,32 L44.5,29.5 L51.4,27 Z" />
+    <!-- Bóng dưới sách -->
+    <path android:fillColor="#59020510"
+        android:pathData="M30,79 C40,76 48,76 54,80 C60,76 68,76 78,79 C70,85 38,85 30,79 Z" />
+    <!-- Trang trái -->
+    <path android:pathData="M54,45 C46,39.5 36,39.5 28,43 L28,77 C36,73.5 46,73.5 54,79 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear" android:startX="0" android:startY="40" android:endX="0" android:endY="79">
+                <item android:offset="0" android:color="#FFFAE2A0" />
+                <item android:offset="1" android:color="#FFC49230" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Trang phải -->
+    <path android:pathData="M54,45 C62,39.5 72,39.5 80,43 L80,77 C72,73.5 62,73.5 54,79 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear" android:startX="0" android:startY="40" android:endX="0" android:endY="79">
+                <item android:offset="0" android:color="#FFFFECB4" />
+                <item android:offset="1" android:color="#FFCE9E3A" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Dòng chữ trên trang -->
+    <path android:fillColor="#00000000" android:strokeColor="#78785010" android:strokeWidth="0.7"
+        android:pathData="M52,50 C46,46 38,46 32,48 M52,54.2 C46,50.2 38,50.2 32,52.2 M52,58.4 C46,54.4 38,54.4 32,56.4 M56,50 C62,46 70,46 76,48 M56,54.2 C62,50.2 70,50.2 76,52.2 M56,58.4 C62,54.4 70,54.4 76,56.4" />
+    <!-- Gáy sách -->
+    <path android:fillColor="#141E40" android:pathData="M53.2,45 L54.8,45 L54.8,79 L53.2,79 Z" />
+    <!-- Mép sáng -->
+    <path android:fillColor="#00000000" android:strokeColor="#E6FFF4CD" android:strokeWidth="0.9"
+        android:pathData="M28,43 C36,39.5 46,39.5 54,45 C62,39.5 72,39.5 80,43" />
+    <!-- Ngôi sao tri thức -->
+    <path android:pathData="M54,15.5 L56.1,24.9 L65.5,27 L56.1,29.1 L54,38.5 L51.9,29.1 L42.5,27 L51.9,24.9 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear" android:startX="0" android:startY="15" android:endX="0" android:endY="39">
+                <item android:offset="0" android:color="#FFFFFFFF" />
+                <item android:offset="1" android:color="#FFFFE29A" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:fillColor="#FFFFF8E1"
+        android:pathData="M70,20.8 L70.7,23.3 L73.2,24 L70.7,24.7 L70,27.2 L69.3,24.7 L66.8,24 L69.3,23.3 Z M39,29.6 L39.5,31.5 L41.4,32 L39.5,32.5 L39,34.4 L38.5,32.5 L36.6,32 L38.5,31.5 Z" />
 </vector>

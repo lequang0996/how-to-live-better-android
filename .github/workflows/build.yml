@@ -26,8 +26,13 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      # Cài Android SDK và tự chấp nhận license (compileSdk 36)
-      - uses: android-actions/setup-android@v3
+      # Runner ubuntu-latest đã có sẵn Android SDK ($ANDROID_HOME). Chỉ cần chấp nhận license;
+      # AGP sẽ tự tải platform 36 / build-tools còn thiếu.
+      - name: Accept Android SDK licenses
+        run: |
+          SDKM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          [ -x "$SDKM" ] || SDKM=$(ls "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager | head -n1)
+          yes | "$SDKM" --licenses > /dev/null || true
 
       # Dự án chưa có gradle-wrapper.jar nên dùng Gradle 8.11.1 trực tiếp
       - uses: gradle/actions/setup-gradle@v4
