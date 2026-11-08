@@ -61,9 +61,9 @@
     <string name="about_license">Giấy phép</string>
     <string name="fx_label">Tỷ giá tham khảo 11/2026</string>
     <string name="lang_en">Tiếng Anh</string>
-    <string name="lang_zh">Tiếng Trung (Giản thể)</string>
+    <string name="lang_zh">Tiếng Trung, Giản thể</string>
     <string name="lang_es">Tiếng Tây Ban Nha</string>
-    <string name="lang_pt">Tiếng Bồ Đào Nha (Brazil)</string>
+    <string name="lang_pt">Tiếng Bồ Đào Nha, Brazil</string>
     <string name="lang_ru">Tiếng Nga</string>
     <string name="lang_ja">Tiếng Nhật</string>
     <string name="lang_ko">Tiếng Hàn</string>

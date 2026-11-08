@@ -19,7 +19,6 @@ android {
         manifestPlaceholders["admobAppId"] = "ca-app-pub-3940256099942544~3347511713"
         buildConfigField("String", "ADMOB_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
         buildConfigField("String", "ADMOB_APP_OPEN_ID", "\"ca-app-pub-3940256099942544/9257395921\"")      // Quảng cáo mở ứng dụng (ID thử nghiệm)
-        buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"ca-app-pub-3940256099942544/1033173712\"") // Quảng cáo xen kẽ (ID thử nghiệm)
         // URL chính sách quyền riêng tư (GitHub Pages, thư mục docs/)
         buildConfigField("String", "PRIVACY_URL", "\"https://lequang0996.github.io/how-to-live-better-android/privacy-policy.html\"")
     }

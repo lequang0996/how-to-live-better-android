@@ -61,9 +61,9 @@
     <string name="about_license">Лицензия</string>
     <string name="fx_label">Курсы, ноябрь 2026</string>
     <string name="lang_en">английский</string>
-    <string name="lang_zh">китайский (упрощённый)</string>
+    <string name="lang_zh">китайский, упрощённый</string>
     <string name="lang_es">испанский</string>
-    <string name="lang_pt">португальский (Бразилия)</string>
+    <string name="lang_pt">португальский, Бразилия</string>
     <string name="lang_ru">русский</string>
     <string name="lang_ja">японский</string>
     <string name="lang_ko">корейский</string>

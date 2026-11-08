@@ -61,9 +61,9 @@
     <string name="about_license">라이선스</string>
     <string name="fx_label">2026년 11월 참고 환율</string>
     <string name="lang_en">영어</string>
-    <string name="lang_zh">중국어(간체)</string>
+    <string name="lang_zh">중국어, 간체</string>
     <string name="lang_es">스페인어</string>
-    <string name="lang_pt">포르투갈어(브라질)</string>
+    <string name="lang_pt">포르투갈어, 브라질</string>
     <string name="lang_ru">러시아어</string>
     <string name="lang_ja">일본어</string>
     <string name="lang_ko">한국어</string>

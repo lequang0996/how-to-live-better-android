@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var speech: SpeechController
     private lateinit var updateManager: AppUpdateManager
     private lateinit var consent: ConsentInformation
-    private lateinit var ads: FullScreenAds
+    private lateinit var ads: AppOpenAds
 
     private val adsReady = mutableStateOf(false)
     private val updateReady = mutableStateOf(false)
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         speech = SpeechController(this).also { it.rate = vm.prefs.ttsRate }
-        ads = FullScreenAds(this, vm.adCounter)
+        ads = AppOpenAds(this, vm.adState)
         lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onStart(owner: LifecycleOwner) { vm.onForeground(); ads.onForeground() }
             override fun onStop(owner: LifecycleOwner) { vm.onBackground(); ads.onBackground() }
@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
                         vm, adsReady.value, updateReady.value, privacyRequired.value,
                         onRestartUpdate = { updateManager.completeUpdate() },
                         onPrivacyOptions = { UserMessagingPlatform.showPrivacyOptionsForm(this) { } },
-                        onItemViewed = ads::onItemViewed,
                     )
                 }
             }

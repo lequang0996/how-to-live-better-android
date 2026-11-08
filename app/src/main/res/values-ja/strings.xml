@@ -61,9 +61,9 @@
     <string name="about_license">ライセンス</string>
     <string name="fx_label">2026年11月の参考レート</string>
     <string name="lang_en">英語</string>
-    <string name="lang_zh">中国語(簡体字)</string>
+    <string name="lang_zh">中国語、簡体字</string>
     <string name="lang_es">スペイン語</string>
-    <string name="lang_pt">ポルトガル語(ブラジル)</string>
+    <string name="lang_pt">ポルトガル語、ブラジル</string>
     <string name="lang_ru">ロシア語</string>
     <string name="lang_ja">日本語</string>
     <string name="lang_ko">韓国語</string>

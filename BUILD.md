@@ -6,7 +6,7 @@
 2. `applicationId`: `com.fws.livebetter` · `compileSdk/targetSdk`: 36 (Google Play yêu cầu target API 36 cho app mới/bản cập nhật từ 31/08/2026) · `minSdk`: 26.
 
 ## Việc BẮT BUỘC trước khi đăng
-- [ ] Thay **AdMob App ID** (`manifestPlaceholders["admobAppId"]`) và 3 mã đơn vị quảng cáo — **Banner** (`ADMOB_BANNER_ID`), **Mở ứng dụng** (`ADMOB_APP_OPEN_ID`), **Xen kẽ** (`ADMOB_INTERSTITIAL_ID`) — trong `app/build.gradle.kts`; hiện đều là ID thử nghiệm của Google.
+- [ ] Thay **AdMob App ID** (`manifestPlaceholders["admobAppId"]`) và 2 mã đơn vị quảng cáo — **Banner** (`ADMOB_BANNER_ID`) và **Mở ứng dụng** (`ADMOB_APP_OPEN_ID`) — trong `app/build.gradle.kts`; hiện đều là ID thử nghiệm của Google.
 - [ ] Bật **GitHub Pages** cho thư mục `docs/`, rồi dán URL `https://lequang0996.github.io/how-to-live-better-android/privacy-policy.html` vào Play Console (Chính sách quyền riêng tư); `PRIVACY_URL` trong `app/build.gradle.kts` đã trỏ đúng URL này.
 - [x] Email liên hệ trong `docs/privacy-policy.html` đã là 17eathday@gmail.com.
 - [ ] Tạo keystore, ký **AAB** (Play App Signing).
@@ -21,5 +21,5 @@ Tỷ giá nằm ở `Money.kt` (enum `Cur`). VND và USD theo tỷ giá bạn cu
 ## In-App Update
 Flexible: `MainActivity.setupInAppUpdate()`. Chỉ hoạt động khi app được cài từ Google Play (thử bằng *Internal app sharing* hoặc track nội bộ với 2 versionCode khác nhau).
 
-## Quảng cáo toàn màn hình
-Mã nguồn ở `Ads.kt`. **Mở ứng dụng**: hiện khi mở app (nếu tải xong trong 5 giây đầu) và khi quay lại app từ nền. **Xen kẽ**: hiện sau mỗi 5 mục MỚI người dùng xem (mục đã xem trong phiên không tính; đổi số 5 ở `FullScreenAds.INTERSTITIAL_EVERY`). Hai loại cách nhau tối thiểu 60 giây. Chỉ chạy sau khi có đồng ý UMP.
+## Quảng cáo mở ứng dụng
+Mã nguồn ở `Ads.kt`. Hiện khi mở app (nếu tải xong trong 5 giây đầu) và khi quay lại app từ nền; chỉ chạy sau khi có đồng ý UMP. App không dùng quảng cáo xen kẽ.
