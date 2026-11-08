@@ -2,7 +2,7 @@
 
 Play yêu cầu 2–8 ảnh điện thoại (PNG/JPEG, mỗi cạnh 320–3840 px, tỷ lệ cạnh dài/cạnh ngắn ≤ 2). Nên dùng ảnh chụp thật từ app đang chạy, không dựng ảnh giả.
 
-Cách chụp: tải **LiveBetter-debug-apk** từ tab Actions của GitHub → cài lên điện thoại → chụp bằng nút nguồn + giảm âm lượng. Đặt tên theo thứ tự, ví dụ:
+Cách chụp: tải **HowToLiveBetter-debug-apk** từ tab Actions của GitHub → cài lên điện thoại → chụp bằng nút nguồn + giảm âm lượng. Đặt tên theo thứ tự, ví dụ:
 
 1. `01-home.png` — Màn hình chính (4 gợi ý của 4 nhóm)
 2. `02-topics.png` — Menu chủ đề (4 nhóm, 34 chủ đề)

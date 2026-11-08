@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.fws.livebetter"
+    namespace = "com.fws.howtolivebetter"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.fws.livebetter"
+        applicationId = "com.fws.howtolivebetter"
         minSdk = 26
         targetSdk = 36          // Google Play: new apps/updates must target API 36 since 31/08/2026
         versionCode = 1

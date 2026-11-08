@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Live Better</string>
+    <string name="app_name">How To Live Better</string>
     <string name="search_hint">Поиск советов и тем</string>
     <string name="menu">Меню</string>
     <string name="today_title">Подборка для вас</string>
@@ -54,7 +54,7 @@
     <string name="guide_5_d">Цены в книге указаны в юанях. Приложение пересчитывает их в валюту выбранного языка.</string>
     <string name="guide_6_t">Избранное и настройки</string>
     <string name="guide_6_d">Нажмите на сердечко, чтобы сохранить пункт. В настройках — язык, светлая/тёмная тема и скорость чтения.</string>
-    <string name="about_intro">Live Better — приложение для чтения, созданное на основе китайской книги 高性价比人生指南 (How To Live Better).</string>
+    <string name="about_intro">How To Live Better — приложение для чтения, созданное на основе китайской книги 高性价比人生指南.</string>
     <string name="about_changes">Внесённые изменения: оставлены только заголовок, уровень доказательств, «простыми словами», затраты и польза; остальные разделы опущены; текст переверстан для телефона; суммы в юанях пересчитываются в другие валюты; добавлены озвучивание и избранное. Авторы оригинала проект не одобряли.</string>
     <string name="about_attr">Указание авторства (CC BY 4.0)</string>
     <string name="about_original">Оригинал</string>

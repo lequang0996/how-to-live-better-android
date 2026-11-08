@@ -12,7 +12,7 @@
     </queries>
 
     <application
-        android:name=".LiveBetterApp"
+        android:name=".HowToLiveBetterApp"
         android:allowBackup="true"
         android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:localeConfig="@xml/locales_config"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LiveBetter"
+        android:theme="@style/Theme.HowToLiveBetter"
         tools:targetApi="36">
 
         <meta-data

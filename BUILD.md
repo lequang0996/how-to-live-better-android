@@ -3,7 +3,7 @@
 ## Build
 1. Mở thư mục này bằng **Android Studio** (bản mới nhất, JDK 17). Studio sẽ tự tạo Gradle wrapper (cần `gradle-8.11.1`+) và đồng bộ dự án.
    Hoặc chạy `gradle wrapper --gradle-version 8.11.1` rồi `./gradlew bundleRelease`.
-2. `applicationId`: `com.fws.livebetter` · `compileSdk/targetSdk`: 36 (Google Play yêu cầu target API 36 cho app mới/bản cập nhật từ 31/08/2026) · `minSdk`: 26.
+2. `applicationId`: `com.fws.howtolivebetter` · `compileSdk/targetSdk`: 36 (Google Play yêu cầu target API 36 cho app mới/bản cập nhật từ 31/08/2026) · `minSdk`: 26.
 
 ## Việc BẮT BUỘC trước khi đăng
 - [ ] Thay **AdMob App ID** (`manifestPlaceholders["admobAppId"]`) và 2 mã đơn vị quảng cáo — **Banner** (`ADMOB_BANNER_ID`) và **Mở ứng dụng** (`ADMOB_APP_OPEN_ID`) — trong `app/build.gradle.kts`; hiện đều là ID thử nghiệm của Google.

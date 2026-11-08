@@ -1,19 +1,19 @@
-# Live Better — Google Play listing
+# How To Live Better — Google Play listing
 
-Package: `com.fws.livebetter` · Privacy policy: `docs/privacy-policy.html` (host via GitHub Pages and paste the URL into Play Console and `PRIVACY_URL` in `app/build.gradle.kts`).
+Package: `com.fws.howtolivebetter` · Privacy policy: `docs/privacy-policy.html` (host via GitHub Pages and paste the URL into Play Console and `PRIVACY_URL` in `app/build.gradle.kts`).
 
 ---
 
 ## 🇻🇳 Tiếng Việt
 
-**Tên ứng dụng (≤ 30 ký tự):** Live Better: Sống Đáng Tiền
+**Tên ứng dụng (≤ 30 ký tự):** How To Live Better
 
 **Mô tả ngắn (≤ 80 ký tự):** 767 mục về sức khỏe, thời gian, tiền bạc, pháp lý. Nghe đọc, quy đổi tiền.
 
 **Mô tả đầy đủ (2863/4000 ký tự):**
 
 ```text
-Live Better — đọc nhanh những việc thực tế giúp bạn sống lâu hơn, đỡ tốn thời gian, tiền bạc và tránh vướng rắc rối pháp lý.
+How To Live Better — đọc nhanh những việc thực tế giúp bạn sống lâu hơn, đỡ tốn thời gian, tiền bạc và tránh vướng rắc rối pháp lý.
 
 Ứng dụng gom 767 mục trong 34 chủ đề, chia thành 4 nhóm chính:
 • Tuổi thọ — an toàn, tầm soát, vắc-xin, sơ cứu, chăm người già, trẻ sơ sinh, thuốc trong nhà…
@@ -53,14 +53,14 @@ Chính sách quyền riêng tư: xem liên kết trong Cài đặt và trên tra
 
 ## 🇬🇧 English
 
-**App title (≤ 30 chars):** Live Better: Live Smarter
+**App title (≤ 30 chars):** How To Live Better
 
 **Short description (≤ 80 chars):** 767 tips on health, time, money & law. Read aloud, currency conversion.
 
 **Full description (2970/4000 chars):**
 
 ```text
-Live Better — a quick reader of practical steps that help you live longer, waste less time and money, and avoid legal trouble.
+How To Live Better — a quick reader of practical steps that help you live longer, waste less time and money, and avoid legal trouble.
 
 The app collects 767 tips across 34 topics, organized in 4 main groups:
 • Longevity — safety, screenings, vaccines, first aid, elder care, newborn care, medicine at home…

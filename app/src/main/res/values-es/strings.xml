@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Live Better</string>
+    <string name="app_name">How To Live Better</string>
     <string name="search_hint">Buscar consejos y temas</string>
     <string name="menu">Menú</string>
     <string name="today_title">Selección para ti</string>
@@ -54,7 +54,7 @@
     <string name="guide_5_d">Los precios del libro están en yuanes. La app los convierte a la moneda del idioma elegido.</string>
     <string name="guide_6_t">Favoritos y ajustes</string>
     <string name="guide_6_d">Toca el corazón para guardar consejos. En Ajustes puedes cambiar idioma, modo claro/oscuro y velocidad de lectura.</string>
-    <string name="about_intro">Live Better es una aplicación de lectura basada en el libro chino 高性价比人生指南 (How To Live Better).</string>
+    <string name="about_intro">How To Live Better es una aplicación de lectura basada en el libro chino 高性价比人生指南.</string>
     <string name="about_changes">Cambios realizados: solo se conservan Título, Nivel de evidencia, En palabras simples, Costo y Beneficio; se omiten otras secciones; el texto se reformateó para móvil; los importes en yuanes se convierten a otras monedas; se añadieron lectura en voz alta y favoritos. Sin respaldo de los autores originales.</string>
     <string name="about_attr">Atribución (CC BY 4.0)</string>
     <string name="about_original">Obra original</string>

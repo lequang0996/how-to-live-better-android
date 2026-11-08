@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Live Better</string>
+    <string name="app_name">How To Live Better</string>
     <string name="search_hint">Tìm mục, chủ đề…</string>
     <string name="menu">Menu</string>
     <string name="today_title">Gợi ý dành cho bạn</string>
@@ -54,7 +54,7 @@
     <string name="guide_5_d">Giá trong sách tính bằng nhân dân tệ. App tự quy đổi sang tiền tệ tương ứng với ngôn ngữ bạn chọn.</string>
     <string name="guide_6_t">Yêu thích &amp; cài đặt</string>
     <string name="guide_6_d">Chạm trái tim để lưu mục yêu thích. Trong Cài đặt bạn có thể đổi ngôn ngữ, chế độ sáng/tối và tốc độ đọc.</string>
-    <string name="about_intro">Live Better là ứng dụng đọc xây dựng từ cuốn sách tiếng Trung 高性价比人生指南 (How To Live Better).</string>
+    <string name="about_intro">How To Live Better là ứng dụng đọc xây dựng từ cuốn sách tiếng Trung 高性价比人生指南.</string>
     <string name="about_changes">Thay đổi đã thực hiện: chỉ giữ Tiêu đề, Xếp hạng, Nói đơn giản, Chi phí và Lợi ích của mỗi mục; các phần khác được lược bỏ; bố cục được trình bày lại cho điện thoại; số tiền nhân dân tệ được quy đổi sang tiền tệ khác; bổ sung đọc thành tiếng và yêu thích. Không được tác giả gốc bảo trợ.</string>
     <string name="about_attr">Ghi công (CC BY 4.0)</string>
     <string name="about_original">Tác phẩm gốc</string>

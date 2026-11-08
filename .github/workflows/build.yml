@@ -45,7 +45,7 @@ jobs:
       - name: Upload debug APK (cài thử trực tiếp)
         uses: actions/upload-artifact@v4
         with:
-          name: LiveBetter-debug-apk
+          name: HowToLiveBetter-debug-apk
           path: app/build/outputs/apk/debug/*.apk
 
       # ---- Ký AAB (tùy chọn) — chỉ chạy nếu bạn đã thêm 4 secrets bên dưới ----
@@ -75,7 +75,7 @@ jobs:
       - name: Upload release AAB
         uses: actions/upload-artifact@v4
         with:
-          name: LiveBetter-release-aab${{ steps.sign.outputs.signed == 'true' && '-signed' || '-unsigned' }}
+          name: HowToLiveBetter-release-aab${{ steps.sign.outputs.signed == 'true' && '-signed' || '-unsigned' }}
           path: ${{ steps.sign.outputs.aab }}
 
       # Push tag dạng v1.0.0 → tạo GitHub Release kèm APK + AAB

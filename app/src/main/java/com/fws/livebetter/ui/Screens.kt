@@ -469,7 +469,7 @@ fun SettingsScreen(vm: MainViewModel, privacyRequired: Boolean, onPrivacyOptions
                 Text(stringResource(R.string.privacy_options))
             }
             Spacer(Modifier.height(8.dp))
-            Text("Live Better v${BuildConfig.VERSION_NAME}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text("How To Live Better v${BuildConfig.VERSION_NAME}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
     }
 }
