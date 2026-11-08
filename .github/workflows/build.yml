@@ -1,0 +1,83 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write   # cần để đính kèm file vào GitHub Release khi push tag v*
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      # Cài Android SDK và tự chấp nhận license (compileSdk 36)
+      - uses: android-actions/setup-android@v3
+
+      # Dự án chưa có gradle-wrapper.jar nên dùng Gradle 8.11.1 trực tiếp
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.11.1
+
+      - name: Build debug APK + release AAB
+        run: gradle assembleDebug bundleRelease --no-daemon --stacktrace
+
+      - name: Upload debug APK (cài thử trực tiếp)
+        uses: actions/upload-artifact@v4
+        with:
+          name: LiveBetter-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+
+      # ---- Ký AAB (tùy chọn) — chỉ chạy nếu bạn đã thêm 4 secrets bên dưới ----
+      - name: Sign release AAB
+        id: sign
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          AAB=$(ls app/build/outputs/bundle/release/*.aab | head -n1)
+          if [ -n "$KEYSTORE_B64" ] && [ -n "$KEYSTORE_PASSWORD" ] && [ -n "$KEY_ALIAS" ]; then
+            echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.jks"
+            jarsigner -sigalg SHA256withRSA -digestalg SHA-256 \
+              -keystore "$RUNNER_TEMP/release.jks" \
+              -storepass "$KEYSTORE_PASSWORD" -keypass "${KEY_PASSWORD:-$KEYSTORE_PASSWORD}" \
+              "$AAB" "$KEY_ALIAS"
+            rm -f "$RUNNER_TEMP/release.jks"
+            echo "signed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Không có secrets ký → AAB giữ nguyên chưa ký."
+            echo "signed=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "aab=$AAB" >> "$GITHUB_OUTPUT"
+
+      - name: Upload release AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: LiveBetter-release-aab${{ steps.sign.outputs.signed == 'true' && '-signed' || '-unsigned' }}
+          path: ${{ steps.sign.outputs.aab }}
+
+      # Push tag dạng v1.0.0 → tạo GitHub Release kèm APK + AAB
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            app/build/outputs/apk/debug/*.apk
+            ${{ steps.sign.outputs.aab }}
