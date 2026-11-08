@@ -14,7 +14,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -99,7 +98,7 @@ fun ItemRow(item: Item, content: Content, isFav: Boolean, onClick: () -> Unit, o
 fun FavButton(isFav: Boolean, onClick: () -> Unit, tint: Color? = null) {
     IconButton(onClick = onClick) {
         Icon(
-            if (isFav) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+            if (isFav) Icons.Filled.Favorite else AppIcons.FavoriteBorder,
             contentDescription = stringResource(if (isFav) R.string.remove_fav else R.string.add_fav),
             tint = if (isFav) Heart else tint ?: MaterialTheme.colorScheme.onSurfaceVariant,
         )

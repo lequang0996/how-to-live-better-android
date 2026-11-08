@@ -8,7 +8,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -96,7 +95,7 @@ private fun Navigation(
                         NavigationDrawerItem({ Text(stringResource(R.string.favorites)) }, false, { go("favorites") },
                             icon = { Icon(Icons.Filled.Favorite, null, tint = Heart) }, modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding))
                         NavigationDrawerItem({ Text(stringResource(R.string.guide)) }, false, { go("guide") },
-                            icon = { Icon(Icons.Filled.MenuBook, null) }, modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding))
+                            icon = { Icon(AppIcons.MenuBook, null) }, modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding))
                         NavigationDrawerItem({ Text(stringResource(R.string.settings)) }, false, { go("settings") },
                             icon = { Icon(Icons.Filled.Settings, null) }, modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding))
                         NavigationDrawerItem({ Text(stringResource(R.string.about)) }, false, { go("about") },

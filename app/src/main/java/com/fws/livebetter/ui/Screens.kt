@@ -20,7 +20,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -292,7 +291,7 @@ fun ItemScreen(vm: MainViewModel, content: Content, itemId: Int, onBack: () -> U
                         }
                     }) {
                         Icon(
-                            if (speaking) Icons.Filled.Stop else Icons.AutoMirrored.Filled.VolumeUp,
+                            if (speaking) AppIcons.Stop else AppIcons.VolumeUp,
                             stringResource(if (speaking) R.string.stop_listening else R.string.listen),
                             tint = if (speaking) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
                         )
@@ -362,11 +361,11 @@ private fun Section(title: String, body: String, accent: Color) {
 @Composable
 fun GuideScreen(onBack: () -> Unit) {
     val steps: List<Triple<ImageVector, Int, Int>> = listOf(
-        Triple(Icons.Filled.AutoAwesome, R.string.guide_1_t, R.string.guide_1_d),
+        Triple(AppIcons.AutoAwesome, R.string.guide_1_t, R.string.guide_1_d),
         Triple(Icons.Filled.Search, R.string.guide_2_t, R.string.guide_2_d),
         Triple(Icons.Filled.Menu, R.string.guide_3_t, R.string.guide_3_d),
-        Triple(Icons.AutoMirrored.Filled.VolumeUp, R.string.guide_4_t, R.string.guide_4_d),
-        Triple(Icons.Filled.Payments, R.string.guide_5_t, R.string.guide_5_d),
+        Triple(AppIcons.VolumeUp, R.string.guide_4_t, R.string.guide_4_d),
+        Triple(AppIcons.Payments, R.string.guide_5_t, R.string.guide_5_d),
         Triple(Icons.Filled.Favorite, R.string.guide_6_t, R.string.guide_6_d),
     )
     Scaffold(topBar = { TopAppBar(title = { Text(stringResource(R.string.guide), style = MaterialTheme.typography.titleLarge) }, navigationIcon = { BackButton(onBack) }) }) { pad ->
