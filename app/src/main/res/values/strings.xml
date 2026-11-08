@@ -42,10 +42,6 @@
     <string name="disclaimer">Community edition, not reviewed by experts. For reference only — not medical, legal or financial advice.</string>
     <string name="update_downloaded">Update downloaded</string>
     <string name="restart">Restart</string>
-    <string name="welcome_title">Welcome to Live Better</string>
-    <string name="welcome_body">Want a 30-second tour of how the app works?</string>
-    <string name="see_guide">View guide</string>
-    <string name="later">Later</string>
     <string name="guide_1_t">Today\'s picks</string>
     <string name="guide_1_d">The home screen shows one random tip from each of the 4 groups. They refresh every 5 minutes, even if the app was closed.</string>
     <string name="guide_2_t">Search</string>

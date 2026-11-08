@@ -42,10 +42,6 @@
     <string name="disclaimer">コミュニティ版で専門家の確認は受けていません。参考情報であり、医療・法律・金融上の助言ではありません。</string>
     <string name="update_downloaded">アップデートをダウンロードしました</string>
     <string name="restart">再起動</string>
-    <string name="welcome_title">Live Better へようこそ</string>
-    <string name="welcome_body">30秒で使い方を見ますか?</string>
-    <string name="see_guide">使い方を見る</string>
-    <string name="later">あとで</string>
     <string name="guide_1_t">今日のおすすめ</string>
     <string name="guide_1_d">ホーム画面には4つのグループから1項目ずつランダムに表示され、アプリを閉じていても5分ごとに入れ替わります。</string>
     <string name="guide_2_t">検索</string>

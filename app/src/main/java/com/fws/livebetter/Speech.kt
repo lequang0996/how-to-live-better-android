@@ -19,7 +19,7 @@ class SpeechController(context: Context) {
     private var initOk = false
     private var pending: String? = null
     private var gen = 0
-    var rate = 1f
+    var rate = 2f
 
     fun speak(text: String) {
         val engine = tts

@@ -42,10 +42,6 @@
     <string name="disclaimer">커뮤니티 판으로 전문가 검수를 거치지 않았습니다. 참고용이며 의료·법률·재정 조언이 아닙니다.</string>
     <string name="update_downloaded">업데이트를 다운로드했습니다</string>
     <string name="restart">재시작</string>
-    <string name="welcome_title">Live Better에 오신 것을 환영합니다</string>
-    <string name="welcome_body">30초 안에 사용법을 볼까요?</string>
-    <string name="see_guide">가이드 보기</string>
-    <string name="later">나중에</string>
     <string name="guide_1_t">오늘의 추천</string>
     <string name="guide_1_d">홈 화면에는 4개 그룹에서 항목이 하나씩 무작위로 표시되며, 앱을 꺼 둬도 5분마다 바뀝니다.</string>
     <string name="guide_2_t">검색</string>

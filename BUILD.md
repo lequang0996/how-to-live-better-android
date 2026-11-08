@@ -7,7 +7,7 @@
 
 ## Việc BẮT BUỘC trước khi đăng
 - [ ] Thay **AdMob App ID** (`manifestPlaceholders["admobAppId"]`) và 3 mã đơn vị quảng cáo — **Banner** (`ADMOB_BANNER_ID`), **Mở ứng dụng** (`ADMOB_APP_OPEN_ID`), **Xen kẽ** (`ADMOB_INTERSTITIAL_ID`) — trong `app/build.gradle.kts`; hiện đều là ID thử nghiệm của Google.
-- [ ] Bật **GitHub Pages** cho thư mục `docs/`, rồi sửa `PRIVACY_URL` trong `app/build.gradle.kts` và dán URL vào Play Console (Chính sách quyền riêng tư).
+- [ ] Bật **GitHub Pages** cho thư mục `docs/`, rồi dán URL `https://lequang0996.github.io/how-to-live-better-android/privacy-policy.html` vào Play Console (Chính sách quyền riêng tư); `PRIVACY_URL` trong `app/build.gradle.kts` đã trỏ đúng URL này.
 - [x] Email liên hệ trong `docs/privacy-policy.html` đã là 17eathday@gmail.com.
 - [ ] Tạo keystore, ký **AAB** (Play App Signing).
 - [ ] Play Console → **Data safety**: khai báo Advertising ID/thiết bị (AdMob), không thu thập dữ liệu cá nhân khác; **Target audience: từ 13 tuổi trở lên** (khớp mục Trẻ em trong chính sách; không chọn nhóm dưới 13); khai báo **Ads = Có**; **Health apps declaration**: ứng dụng thông tin tham khảo, không phải thiết bị y tế.

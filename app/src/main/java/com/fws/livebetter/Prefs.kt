@@ -16,12 +16,8 @@ class Prefs(ctx: Context) {
         set(v) = sp.edit { putString("theme", v) }
 
     var ttsRate: Float
-        get() = sp.getFloat("tts_rate", 1f)
+        get() = sp.getFloat("tts_rate", 2f)
         set(v) = sp.edit { putFloat("tts_rate", v) }
-
-    var welcomeShown: Boolean
-        get() = sp.getBoolean("welcome", false)
-        set(v) = sp.edit { putBoolean("welcome", v) }
 
     /** Thời điểm (epoch ms) lần xoay vòng gần nhất — còn hiệu lực cả khi tắt app. */
     var rotTs: Long

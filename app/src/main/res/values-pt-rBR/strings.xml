@@ -42,10 +42,6 @@
     <string name="disclaimer">Edição comunitária sem revisão de especialistas. Apenas informativa; não é aconselhamento médico, jurídico ou financeiro.</string>
     <string name="update_downloaded">Atualização baixada</string>
     <string name="restart">Reiniciar</string>
-    <string name="welcome_title">Bem-vindo ao Live Better</string>
-    <string name="welcome_body">Quer um tour de 30 segundos?</string>
-    <string name="see_guide">Ver guia</string>
-    <string name="later">Depois</string>
     <string name="guide_1_t">Seleção de hoje</string>
     <string name="guide_1_d">A tela inicial mostra um item aleatório de cada um dos 4 grupos. Eles mudam a cada 5 minutos, mesmo com o app fechado.</string>
     <string name="guide_2_t">Pesquisar</string>

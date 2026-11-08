@@ -458,7 +458,7 @@ fun SettingsScreen(vm: MainViewModel, privacyRequired: Boolean, onPrivacyOptions
             Slider(
                 value = rate, onValueChange = { rate = it },
                 onValueChangeFinished = { vm.prefs.ttsRate = rate; speech.rate = rate },
-                valueRange = 0.5f..1.5f, steps = 9,
+                valueRange = 0.5f..4f, steps = 13, // bước 0,25×; tối đa 4×
             )
 
             SettingsTitle(stringResource(R.string.privacy_policy))

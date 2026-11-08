@@ -42,10 +42,6 @@
     <string name="disclaimer">Общественная версия без экспертной проверки. Только для справки; не заменяет медицинскую, юридическую или финансовую консультацию.</string>
     <string name="update_downloaded">Обновление загружено</string>
     <string name="restart">Перезапустить</string>
-    <string name="welcome_title">Добро пожаловать в Live Better</string>
-    <string name="welcome_body">Хотите 30-секундный обзор приложения?</string>
-    <string name="see_guide">Открыть</string>
-    <string name="later">Позже</string>
     <string name="guide_1_t">Подборка дня</string>
     <string name="guide_1_d">На главном экране — по одному случайному пункту из каждой из 4 групп. Они меняются каждые 5 минут, даже если приложение было закрыто.</string>
     <string name="guide_2_t">Поиск</string>

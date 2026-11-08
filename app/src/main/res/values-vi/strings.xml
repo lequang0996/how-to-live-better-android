@@ -42,10 +42,6 @@
     <string name="disclaimer">Bản cộng đồng, chưa qua chuyên gia duyệt. Chỉ để tham khảo, không thay thế tư vấn y tế, pháp lý hay tài chính.</string>
     <string name="update_downloaded">Đã tải xong bản cập nhật</string>
     <string name="restart">Khởi động lại</string>
-    <string name="welcome_title">Chào mừng đến với Live Better</string>
-    <string name="welcome_body">Bạn muốn xem hướng dẫn nhanh cách dùng app không?</string>
-    <string name="see_guide">Xem hướng dẫn</string>
-    <string name="later">Để sau</string>
     <string name="guide_1_t">Gợi ý hôm nay</string>
     <string name="guide_1_d">Màn hình chính hiển thị ngẫu nhiên 1 mục cho mỗi nhóm trong 4 nhóm chủ đề. Nội dung đổi sau mỗi 5 phút, kể cả khi bạn đã tắt app.</string>
     <string name="guide_2_t">Tìm kiếm</string>

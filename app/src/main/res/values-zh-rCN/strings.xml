@@ -42,10 +42,6 @@
     <string name="disclaimer">社区版,未经专家审阅。仅供参考,不构成医疗、法律或财务建议。</string>
     <string name="update_downloaded">更新已下载</string>
     <string name="restart">重启</string>
-    <string name="welcome_title">欢迎使用 Live Better</string>
-    <string name="welcome_body">想用30秒了解如何使用吗?</string>
-    <string name="see_guide">查看指南</string>
-    <string name="later">稍后</string>
     <string name="guide_1_t">今日精选</string>
     <string name="guide_1_d">主页为4个主题组各随机展示1条内容,每5分钟更换一次,即使关闭应用也会计时。</string>
     <string name="guide_2_t">搜索</string>

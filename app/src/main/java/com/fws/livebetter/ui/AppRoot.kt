@@ -37,8 +37,11 @@ fun AppRoot(
     val c = content
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
         // Khi có banner, banner đã chừa chỗ cho thanh điều hướng → nội dung phía trên không cộng thêm inset đáy.
-        Box(Modifier.weight(1f).then(if (adsReady) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier)) {
-            if (c == null) CircularProgressIndicator(Modifier.align(Alignment.Center))
+        Box(Modifier.weight(1f).fillMaxWidth().then(if (adsReady) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier)) {
+            if (c == null) Text(
+                "How To Live Better", Modifier.align(Alignment.Center),
+                style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.secondary,
+            )
             else Navigation(vm, c, updateReady, privacyRequired, onRestartUpdate, onPrivacyOptions, onItemViewed)
         }
         if (adsReady) AdBanner(Modifier.navigationBarsPadding())
@@ -57,7 +60,6 @@ private fun Navigation(
     val route = nav.currentBackStackEntryAsState().value?.destination?.route
     val updMsg = stringResource(R.string.update_downloaded)
     val restart = stringResource(R.string.restart)
-    var welcome by rememberSaveable { mutableStateOf(!vm.prefs.welcomeShown) }
 
     // In-App Update (Flexible): tải nền xong thì mời khởi động lại.
     LaunchedEffect(updateReady) {
@@ -130,19 +132,5 @@ private fun Navigation(
             }
         }
         SnackbarHost(snack, Modifier.align(Alignment.BottomCenter).windowInsetsPadding(WindowInsets.navigationBars))
-    }
-
-    if (welcome) {
-        AlertDialog(
-            onDismissRequest = { welcome = false; vm.prefs.welcomeShown = true },
-            title = { Text(stringResource(R.string.welcome_title)) },
-            text = { Text(stringResource(R.string.welcome_body)) },
-            confirmButton = {
-                TextButton({ welcome = false; vm.prefs.welcomeShown = true; nav.navigate("guide") }) { Text(stringResource(R.string.see_guide)) }
-            },
-            dismissButton = {
-                TextButton({ welcome = false; vm.prefs.welcomeShown = true }) { Text(stringResource(R.string.later)) }
-            },
-        )
     }
 }
