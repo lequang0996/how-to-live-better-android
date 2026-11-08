@@ -26,6 +26,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.fws.livebetter.*
+import com.fws.livebetter.R
 import kotlinx.coroutines.launch
 
 @Composable
@@ -93,13 +94,13 @@ private fun Navigation(
                         TopicTree(c, onChapter = { go("chapter/$it") }, modifier = Modifier.padding(horizontal = 12.dp))
                         HorizontalDivider(Modifier.padding(vertical = 12.dp, horizontal = 16.dp))
                         NavigationDrawerItem({ Text(stringResource(R.string.favorites)) }, false, { go("favorites") },
-                            icon = { Icon(Icons.Filled.Favorite, null, tint = Heart) }, modifier = NavigationDrawerItemDefaults.ItemPadding)
+                            icon = { Icon(Icons.Filled.Favorite, null, tint = Heart) }, modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding))
                         NavigationDrawerItem({ Text(stringResource(R.string.guide)) }, false, { go("guide") },
-                            icon = { Icon(Icons.Filled.MenuBook, null) }, modifier = NavigationDrawerItemDefaults.ItemPadding)
+                            icon = { Icon(Icons.Filled.MenuBook, null) }, modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding))
                         NavigationDrawerItem({ Text(stringResource(R.string.settings)) }, false, { go("settings") },
-                            icon = { Icon(Icons.Filled.Settings, null) }, modifier = NavigationDrawerItemDefaults.ItemPadding)
+                            icon = { Icon(Icons.Filled.Settings, null) }, modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding))
                         NavigationDrawerItem({ Text(stringResource(R.string.about)) }, false, { go("about") },
-                            icon = { Icon(Icons.Filled.Info, null) }, modifier = NavigationDrawerItemDefaults.ItemPadding)
+                            icon = { Icon(Icons.Filled.Info, null) }, modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding))
                     }
                 }
             },

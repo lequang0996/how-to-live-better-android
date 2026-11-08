@@ -41,6 +41,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.os.LocaleListCompat
 import com.fws.livebetter.*
+import com.fws.livebetter.R
+import com.fws.livebetter.BuildConfig
 import java.text.NumberFormat
 import java.util.Locale
 
