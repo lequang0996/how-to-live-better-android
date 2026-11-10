@@ -189,7 +189,7 @@ private fun HeroCard(item: Item, content: Content, onClick: () -> Unit, isFav: B
                 }
                 Text(money(item.title), Modifier.padding(end = 12.dp), color = Color.White, style = MaterialTheme.typography.titleLarge, maxLines = 3, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.height(8.dp))
-                Text(money(item.simple), Modifier.padding(end = 12.dp), color = Color.White.copy(alpha = 0.92f), style = MaterialTheme.typography.bodyMedium, maxLines = 5, overflow = TextOverflow.Ellipsis)
+                Text(money(item.cost), Modifier.padding(end = 12.dp), color = Color.White.copy(alpha = 0.92f), style = MaterialTheme.typography.bodyMedium, maxLines = 5, overflow = TextOverflow.Ellipsis)
             }
             Row(Modifier.padding(end = 12.dp), verticalAlignment = Alignment.CenterVertically) {
                 RankBadge(item.rank, 28)
@@ -284,8 +284,8 @@ fun ItemScreen(vm: MainViewModel, content: Content, itemId: Int, onBack: () -> U
                             speech.speak(
                                 listOf(
                                     Money.speech(item.title, cur),
-                                    "Nói đơn giản. " + Money.speech(item.simple, cur),
                                     "Chi phí. " + Money.speech(item.cost, cur),
+                                    "Nói đơn giản. " + Money.speech(item.simple, cur),
                                     "Lợi ích. " + Money.speech(item.benefit, cur),
                                 ).joinToString(". ").replace("..", ".")
                             )
@@ -322,8 +322,8 @@ fun ItemScreen(vm: MainViewModel, content: Content, itemId: Int, onBack: () -> U
                 }
             }
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Section(stringResource(R.string.sec_simple), money(item.simple), MaterialTheme.colorScheme.tertiary)
                 Section(stringResource(R.string.sec_cost), money(item.cost), MaterialTheme.colorScheme.secondary)
+                Section(stringResource(R.string.sec_simple), money(item.simple), MaterialTheme.colorScheme.tertiary)
                 Section(stringResource(R.string.sec_benefit), money(item.benefit), MaterialTheme.colorScheme.primary)
                 if (cur != Cur.CNY && listOf(item.title, item.simple, item.cost, item.benefit).any { "⟦" in it }) {
                     val nf = NumberFormat.getNumberInstance(loc).apply { maximumFractionDigits = 4 }
@@ -413,72 +413,124 @@ private val LANGUAGES = listOf(
 fun SettingsScreen(vm: MainViewModel, privacyRequired: Boolean, onPrivacyOptions: () -> Unit, onBack: () -> Unit) {
     val uri = LocalUriHandler.current
     val speech = LocalSpeech.current
-    var langTag by remember { mutableStateOf(AppCompatDelegate.getApplicationLocales().toLanguageTags()) }
+    val uiLang = currentLang()
     var theme by remember { mutableStateOf(vm.prefs.theme) }
     var rate by remember { mutableFloatStateOf(vm.prefs.ttsRate) }
 
-    Scaffold(topBar = { TopAppBar(title = { Text(stringResource(R.string.settings), style = MaterialTheme.typography.titleLarge) }, navigationIcon = { BackButton(onBack) }) }) { pad ->
-        Column(Modifier.padding(pad).fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            SettingsTitle(stringResource(R.string.language))
-            // "🇬🇧 - English (Tiếng Anh)": tên bản ngữ + tên theo ngôn ngữ giao diện hiện tại (bỏ phần ngoặc nếu trùng ngôn ngữ đang dùng).
-            val uiLang = currentLang()
-            val rows = listOf("" to ("🌐 - " + stringResource(R.string.system_default))) + LANGUAGES.map { l ->
-                l.tag to (
-                    if (l.key == uiLang) "${l.flag} - ${l.native}"
-                    else "${l.flag} - ${l.native} (${stringResource(l.label)})"
+    Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
+        topBar = { TopAppBar(title = { Text(stringResource(R.string.settings), style = MaterialTheme.typography.titleLarge) }, navigationIcon = { BackButton(onBack) }) },
+    ) { pad ->
+        Column(
+            Modifier.padding(pad).fillMaxSize().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp, vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            // ── Ngôn ngữ: lưới 2 cột gọn, không còn "Theo hệ thống" ──
+            SettingsCard(AppIcons.Language, stringResource(R.string.language)) {
+                val rows = LANGUAGES.chunked(2)
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    rows.forEach { pair ->
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            pair.forEach { l ->
+                                LanguageTile(l, selected = l.key == uiLang, modifier = Modifier.weight(1f)) {
+                                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(l.tag))
+                                }
+                            }
+                            if (pair.size == 1) Spacer(Modifier.weight(1f))
+                        }
+                    }
+                }
+            }
+
+            // ── Giao diện: thanh phân đoạn ──
+            SettingsCard(Icons.Filled.Star, stringResource(R.string.theme)) {
+                val options = listOf("system" to R.string.system_default, "light" to R.string.theme_light, "dark" to R.string.theme_dark)
+                SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+                    options.forEachIndexed { i, (k, label) ->
+                        SegmentedButton(
+                            selected = theme == k,
+                            onClick = { theme = k; vm.prefs.theme = k; HowToLiveBetterApp.applyNightMode(k) },
+                            shape = SegmentedButtonDefaults.itemShape(i, options.size),
+                            label = { Text(stringResource(label), maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                        )
+                    }
+                }
+            }
+
+            // ── Tốc độ đọc ──
+            SettingsCard(AppIcons.VolumeUp, stringResource(R.string.tts_speed), trailing = String.format(Locale.US, "%.1f×", rate)) {
+                Slider(
+                    value = rate, onValueChange = { rate = it },
+                    onValueChangeFinished = { vm.prefs.ttsRate = rate; speech.rate = rate },
+                    valueRange = 0.5f..4f, steps = 13, // bước 0,25×; tối đa 4×
                 )
             }
-            rows.forEach { (tag, label) ->
-                Row(
-                    Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).clickable {
-                        langTag = tag
-                        AppCompatDelegate.setApplicationLocales(
-                            if (tag.isEmpty()) LocaleListCompat.getEmptyLocaleList() else LocaleListCompat.forLanguageTags(tag)
-                        )
-                    }.padding(vertical = 2.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    RadioButton(selected = langTag == tag, onClick = null, modifier = Modifier.padding(12.dp))
-                    Text(label, style = MaterialTheme.typography.bodyLarge)
+
+            // ── Quyền riêng tư ──
+            SettingsCard(Icons.Filled.Lock, stringResource(R.string.privacy_policy)) {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    FilledTonalButton(onClick = { uri.openUri(BuildConfig.PRIVACY_URL) }, modifier = Modifier.fillMaxWidth()) {
+                        Text(stringResource(R.string.privacy_policy))
+                    }
+                    if (privacyRequired) OutlinedButton(onClick = onPrivacyOptions, modifier = Modifier.fillMaxWidth()) {
+                        Text(stringResource(R.string.privacy_options))
+                    }
                 }
             }
 
-            SettingsTitle(stringResource(R.string.theme))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                listOf("system" to R.string.system_default, "light" to R.string.theme_light, "dark" to R.string.theme_dark).forEach { (k, label) ->
-                    FilterChip(
-                        selected = theme == k,
-                        onClick = { theme = k; vm.prefs.theme = k; HowToLiveBetterApp.applyNightMode(k) },
-                        label = { Text(stringResource(label)) },
-                    )
-                }
-            }
-
-            SettingsTitle(stringResource(R.string.tts_speed) + " · " + String.format(Locale.US, "%.1f×", rate))
-            Slider(
-                value = rate, onValueChange = { rate = it },
-                onValueChangeFinished = { vm.prefs.ttsRate = rate; speech.rate = rate },
-                valueRange = 0.5f..4f, steps = 13, // bước 0,25×; tối đa 4×
+            Text(
+                "How To Live Better · v${BuildConfig.VERSION_NAME}",
+                Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
             )
-
-            SettingsTitle(stringResource(R.string.privacy_policy))
-            OutlinedButton(onClick = { uri.openUri(BuildConfig.PRIVACY_URL) }, modifier = Modifier.fillMaxWidth()) {
-                Icon(Icons.Filled.Lock, null); Spacer(Modifier.width(8.dp)); Text(stringResource(R.string.privacy_policy))
-            }
-            if (privacyRequired) OutlinedButton(onClick = onPrivacyOptions, modifier = Modifier.fillMaxWidth()) {
-                Text(stringResource(R.string.privacy_options))
-            }
-            Spacer(Modifier.height(8.dp))
-            Text("How To Live Better v${BuildConfig.VERSION_NAME}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
     }
 }
 
 @Composable
-private fun SettingsTitle(text: String) = Text(
-    text, Modifier.padding(top = 14.dp, bottom = 2.dp),
-    style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.secondary,
-)
+private fun SettingsCard(icon: ImageVector, title: String, trailing: String? = null, content: @Composable () -> Unit) {
+    Surface(
+        shape = RoundedCornerShape(24.dp), color = MaterialTheme.colorScheme.surface, tonalElevation = 1.dp,
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    Modifier.size(36.dp).clip(RoundedCornerShape(12.dp)).background(MaterialTheme.colorScheme.secondaryContainer),
+                    contentAlignment = Alignment.Center,
+                ) { Icon(icon, null, Modifier.size(20.dp), tint = MaterialTheme.colorScheme.onSecondaryContainer) }
+                Spacer(Modifier.width(12.dp))
+                Text(title, Modifier.weight(1f), style = MaterialTheme.typography.titleMedium)
+                if (trailing != null) Text(trailing, style = MaterialTheme.typography.titleSmall, color = MaterialTheme.colorScheme.secondary)
+            }
+            Spacer(Modifier.height(12.dp))
+            content()
+        }
+    }
+}
+
+@Composable
+private fun LanguageTile(l: Lang, selected: Boolean, modifier: Modifier = Modifier, onClick: () -> Unit) {
+    val cs = MaterialTheme.colorScheme
+    Surface(
+        onClick = onClick, modifier = modifier, shape = RoundedCornerShape(14.dp),
+        color = if (selected) cs.primaryContainer else cs.surfaceVariant.copy(alpha = 0.45f),
+        border = androidx.compose.foundation.BorderStroke(if (selected) 1.5.dp else 1.dp, if (selected) cs.primary else cs.outlineVariant),
+    ) {
+        Row(Modifier.padding(horizontal = 12.dp, vertical = 11.dp), verticalAlignment = Alignment.CenterVertically) {
+            Text(l.flag, style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.width(8.dp))
+            Text(
+                l.native, Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium,
+                fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+                color = if (selected) cs.onPrimaryContainer else cs.onSurface, maxLines = 1, overflow = TextOverflow.Ellipsis,
+            )
+            if (selected) Icon(Icons.Filled.Check, null, Modifier.size(18.dp), tint = cs.primary)
+        }
+    }
+}
 
 // ───────────────────────────── ABOUT / CREDITS ─────────────────────────────
 @OptIn(ExperimentalMaterial3Api::class)
