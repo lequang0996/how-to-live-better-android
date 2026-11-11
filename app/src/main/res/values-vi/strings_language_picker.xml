@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_picker_title">Chọn ngôn ngữ của bạn</string>
+    <string name="lang_picker_subtitle">Bạn có thể đổi lại bất cứ lúc nào trong Cài đặt.</string>
+    <string name="lang_picker_continue">Tiếp tục</string>
+</resources>

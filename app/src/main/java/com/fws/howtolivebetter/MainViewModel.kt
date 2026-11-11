@@ -21,6 +21,15 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     /** Trạng thái quảng cáo mở ứng dụng; nằm trong ViewModel để không mất khi xoay màn hình / đổi ngôn ngữ. */
     val adState = AdState()
 
+    /** Popup chọn ngôn ngữ ở lần mở đầu tiên; nằm trong ViewModel để không hiện lại khi xoay màn hình / đổi ngôn ngữ. */
+    private val _showLanguagePicker = MutableStateFlow(!prefs.langChosen)
+    val showLanguagePicker: StateFlow<Boolean> = _showLanguagePicker
+
+    fun confirmLanguage() {
+        prefs.langChosen = true
+        _showLanguagePicker.value = false
+    }
+
     private val _content = MutableStateFlow<Content?>(null)
     val content: StateFlow<Content?> = _content
 

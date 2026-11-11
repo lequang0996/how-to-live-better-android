@@ -15,6 +15,11 @@ class Prefs(ctx: Context) {
         get() = sp.getString("theme", "system")!!
         set(v) = sp.edit { putString("theme", v) }
 
+    /** Đã hiện popup chọn ngôn ngữ ở lần mở app đầu tiên chưa. */
+    var langChosen: Boolean
+        get() = sp.getBoolean("lang_chosen", false)
+        set(v) = sp.edit { putBoolean("lang_chosen", v) }
+
     var ttsRate: Float
         get() = sp.getFloat("tts_rate", 2f)
         set(v) = sp.edit { putFloat("tts_rate", v) }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_picker_title">Elige tu idioma</string>
+    <string name="lang_picker_subtitle">Puedes cambiarlo en cualquier momento en Ajustes.</string>
+    <string name="lang_picker_continue">Continuar</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_picker_title">Выберите язык</string>
+    <string name="lang_picker_subtitle">Его можно изменить в любое время в настройках.</string>
+    <string name="lang_picker_continue">Продолжить</string>
+</resources>

@@ -46,6 +46,7 @@ fun AppRoot(
 ) {
     val content by vm.content.collectAsState()
     val c = content
+    val showLanguagePicker by vm.showLanguagePicker.collectAsState()
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
         // Khi có banner, banner đã chừa chỗ cho thanh điều hướng → nội dung phía trên không cộng thêm inset đáy.
         Box(Modifier.weight(1f).fillMaxWidth().then(if (adsReady) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier)) {
@@ -57,6 +58,8 @@ fun AppRoot(
         }
         if (adsReady) AdBanner(Modifier.navigationBarsPadding())
     }
+    // Lần đầu mở app: hỏi ngôn ngữ trước khi dùng.
+    if (showLanguagePicker) LanguagePickerDialog(onConfirm = vm::confirmLanguage)
 }
 
 @Composable

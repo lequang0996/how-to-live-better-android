@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_picker_title">言語を選択</string>
+    <string name="lang_picker_subtitle">設定からいつでも変更できます。</string>
+    <string name="lang_picker_continue">続ける</string>
+</resources>
